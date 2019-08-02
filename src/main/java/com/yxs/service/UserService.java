@@ -11,5 +11,5 @@ public interface UserService {
 
     int create(User user);
 
-    PageInfo<User> findByPage(int pageNo, int pageSize);
+    PageInfo findByPage(int pageNo, int pageSize);
 }

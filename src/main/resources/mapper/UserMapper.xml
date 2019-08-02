@@ -91,7 +91,7 @@
     <select id="findAll" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from user order by age desc
+        from `user` order by age desc
     </select>
 
 </mapper>

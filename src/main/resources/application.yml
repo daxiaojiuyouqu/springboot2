@@ -3,44 +3,42 @@ server:
 
 
 spring:
-    datasource:
-        name: develop-test
-        type: com.alibaba.druid.pool.DruidDataSource
-        #druidÏà¹ØÅäÖÃ
-        druid:
-          #¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters
-          filters: stat
-          driver-class-name: com.mysql.jdbc.Driver
-          #»ù±¾ÊôĞÔ
-          url: jdbc:mysql://127.0.0.1:3306/develop-test?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
-          username: root
-          password: yxs
-          #ÅäÖÃ³õÊ¼»¯´óĞ¡/×îĞ¡/×î´ó
-          initial-size: 1
-          min-idle: 1
-          max-active: 20
-          #»ñÈ¡Á¬½ÓµÈ´ı³¬Ê±Ê±¼ä
-          max-wait: 60000
-          #¼ä¸ô¶à¾Ã½øĞĞÒ»´Î¼ì²â£¬¼ì²âĞèÒª¹Ø±ÕµÄ¿ÕÏĞÁ¬½Ó
-          time-between-eviction-runs-millis: 60000
-          #Ò»¸öÁ¬½ÓÔÚ³ØÖĞ×îĞ¡Éú´æµÄÊ±¼ä
-          min-evictable-idle-time-millis: 300000
-          validation-query: SELECT 'x'
-          test-while-idle: true
-          test-on-borrow: false
-          test-on-return: false
-          #´ò¿ªPSCache£¬²¢Ö¸¶¨Ã¿¸öÁ¬½ÓÉÏPSCacheµÄ´óĞ¡¡£oracleÉèÎªtrue£¬mysqlÉèÎªfalse¡£·Ö¿â·Ö±í½Ï¶àÍÆ¼öÉèÖÃÎªfalse
-          pool-prepared-statements: false
-          max-pool-prepared-statement-per-connection-size: 20
-## ¸ÃÅäÖÃ½ÚµãÎª¶ÀÁ¢µÄ½Úµã£¬ÓĞºÜ¶àÍ¬Ñ§ÈİÒ×½«Õâ¸öÅäÖÃ·ÅÔÚspringµÄ½ÚµãÏÂ£¬µ¼ÖÂÅäÖÃÎŞ·¨±»Ê¶±ğ
+  datasource:
+    name: druid
+    type: com.alibaba.druid.pool.DruidDataSource
+    #é˜¿é‡Œdruidè¿æ¥æ± 
+    druid:
+      filters: stat
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://47.104.236.197/aliyun?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      username: admin
+      password: 123456
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+#mybatisé…ç½®
 mybatis:
-  mapper-locations: classpath:mapper/*.xml  #×¢Òâ£ºÒ»¶¨Òª¶ÔÓ¦mapperÓ³ÉäxmlÎÄ¼şµÄËùÔÚÂ·¾¶
-  type-aliases-package: com.yxs.entity # ×¢Òâ£º¶ÔÓ¦ÊµÌåÀàµÄÂ·¾¶
+  mapper-locations: classpath:mapper/*.xml  #sql-mapperæ–‡ä»¶
+  type-aliases-package: com.yxs.entity #domainåŒ…
+
+  logging:
+    level:
+      com:
+        carry: DEBUG
 
 #pagehelper
 pagehelper:
-    helperDialect: mysql
-    reasonable: true
-    supportMethodsArguments: true
-    params: count=countSql
-    returnPageInfo: check
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check

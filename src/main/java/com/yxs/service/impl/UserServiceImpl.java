@@ -20,10 +20,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+    @Override
     public int create(User user) {
         return this.userMapper.insert(user);
     }
 
+    @Override
     public PageInfo<User> findByPage(int pageNo, int pageSize) {
         PageHelper.startPage(pageNo, pageSize);
         List<User> users = this.userMapper.findAll();
